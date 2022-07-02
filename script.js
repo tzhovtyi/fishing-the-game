@@ -290,7 +290,7 @@ const playerLeft = new Image();
 
 
 
-    console.log('Ты большой молодец, что открыл консоль. К сожалению, перемещение в игре осуществляется кликами а js canvas игнорирует forced resize после полной загрузки. Теперь твоя рыба не будет нормально плавать, пока не закроешь консоль');
+    // console.log('Ты большой молодец, что открыл консоль. К сожалению, перемещение в игре осуществляется кликами а js canvas игнорирует forced resize после полной загрузки. Теперь твоя рыба не будет нормально плавать, пока не закроешь консоль');
 
 
 
@@ -437,7 +437,7 @@ function handleHook() {
     if (hook.distance < hook.radius + player.radius && !hook.counted) {
         hook.counted = true;
         iscaught = true;
-        console.log("попался нахуй");
+        // console.log("попался нахуй");
         caught();
 
     }
@@ -673,6 +673,7 @@ function restart() {
         textHandler();
         gameFrame++;
         if (iscaught == false) {
+        console.log(gameFrame);
         requestAnimationFrame(main);
         } 
     }
