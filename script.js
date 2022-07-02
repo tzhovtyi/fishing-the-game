@@ -3,17 +3,14 @@
     const canvas = document.getElementById("canvas1");
     const ctx = canvas.getContext('2d', { alpha: false });
 
-    //НИКИТА ТЫ ЗНАЛ ЧТО ОДИН CSS ПИКСЕЛЬ НЕ РАВЕН 1 JS ПИКСЕЛЮ?
-    //ЗДЕСЬ У МЕНЯ У КАНВАСА В ДЖС ЗАЯВЛЕНО БОЛЬШЕ ПИКСЕЛЕЙ, ЧТО ПОВЫШАЕТ РАЗРЕШЕНИЕ КАНВАСА 
-    
     canvas.width = 1800;
     canvas.height = 825;
     
     const sf = window.devicePixelRatio;
 
-    canvas.style.width = `1200px`;
-    canvas.style.height = `550px`;
-
+    canvas.style.width = `${canvas.width/sf}px`;
+    canvas.style.height = `${canvas.height/sf}px`;
+    
     ctx.font = '35px Life';
     //переменные мои переменные
     
@@ -135,6 +132,10 @@ const playerLeft = new Image();
     let youWord;
     let fish1;
     let fish2;
+    let fish3;
+    let fish4;
+    let fish5;
+    let fish6;
     let fishWord;
 
 
@@ -296,7 +297,6 @@ const playerLeft = new Image();
 
 
 //mouse 
-    let canvasPosition = canvas.getBoundingClientRect();
     //определяет координаты верхней левой точки канваса чтобы мы могли работать с нулями 
     const mouse = {
         x: canvas.width/2,
