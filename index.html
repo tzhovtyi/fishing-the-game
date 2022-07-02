@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+
+    <title>Fishing: the game</title>
+
+</head>
+<body>
+    <div id="dark"></div>
+
+    <div id="restart_">
+        <div id="restart_question"> </div>
+        <div id="restart_button_space"> 
+            <div class="buttonRulesDiv"><button id="restart_button" class="button1" onclick="restart()"></button>  </div>
+        </div>
+    </div>
+
+    <div id="modal_rules">
+        <div id="modal_rules1"></div>
+        <div id="modal_rules2">
+            <div class = "buttonRulesDiv"><button id="close_rules" class = 'button1' onclick="closeRules()"></button> </div>
+            
+        </div>
+    </div>
+    
+   <div id = "modal1"> 
+         <!--<img class = "modal_Img", src="modal.png", alt = 'error'> -->
+        <div id="modal1_up"> <p>Choose the languauge <br> Выберите язык</p></div>
+        <div id="modal1_down">
+            <div id="buttonEngDiv" class="buttonDiv"><button id = 'buttonEng' class="button" onclick="english()">English</button> </div>
+            <div id="buttonRusDiv" class="buttonDiv"><button id = 'buttonRus' class="button" onclick="russian()">Русский</button> </div>
+        </div>
+    </div>
+
+    <div id = "modal2"> 
+        <div id="modal2_up">
+            <div class="buttonRulesDiv"><button id="buttonRules" class="button1" onclick="showRules()"></button></div>
+        </div>
+        <div id="modal2_middle"></div>
+        <div id="modal2_down">
+            <div id="buttonEasyDiv" class="buttonDiv2">  <button id = 'buttonEasy' class="button" onclick="setDifficulty('easy')">легко</button></div>
+            <div id="buttonMediumDiv" class="buttonDiv2"> <button id = 'buttonMedium' class="button" onclick="setDifficulty('medium')">норм</button>  </div>
+            <div id="buttonHardDiv" class="buttonDiv2"> <button id = 'buttonHard' class="button" onclick="setDifficulty('hard')">сложно</button> </div>
+           
+           
+           
+        </div>
+    </div>
+
+    <div id="canvasCurtain"> </div>
+    <canvas id = "canvas1"></canvas>
+
+
+
+</body>
+</html>
