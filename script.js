@@ -25,34 +25,34 @@
 
 //ЗАДАЕМ КАРТИНКИ ДЛЯ РЫБ, ПО ДВЕ НА РЫБУ 
 const playerLeft = new Image();
-    playerLeft.src = "fish_1.png";
+    playerLeft.src = "textures/fish_1.png";
     const playerRight = new Image();
-    playerRight.src = "fish_2.png";
+    playerRight.src = "textures/fish_2.png";
 
     const player2Left = new Image();
-    player2Left.src = "fish_3.png";
+    player2Left.src = "textures/fish_3.png";
     const player2Right = new Image();
-    player2Right.src = "fish_4.png";
+    player2Right.src = "textures/fish_4.png";
 
     const player3Left = new Image();
-    player3Left.src = "fish_5.png";
+    player3Left.src = "textures/fish_5.png";
     const player3Right = new Image();
-    player3Right.src = "fish_6.png";
+    player3Right.src = "textures/fish_6.png";
 
     const player4Left = new Image();
-    player4Left.src = "fish_7.png";
+    player4Left.src = "textures/fish_7.png";
     const player4Right = new Image();
-    player4Right.src = "fish_8.png";
+    player4Right.src = "textures/fish_8.png";
 
     const player5Left = new Image();
-    player5Left.src = "fish_9.png";
+    player5Left.src = "textures/fish_9.png";
     const player5Right = new Image();
-    player5Right.src = "fish_10.png";
+    player5Right.src = "textures/fish_10.png";
 
     const player6Left = new Image();
-    player6Left.src = "fish_11.png";
+    player6Left.src = "textures/fish_11.png";
     const player6Right = new Image();
-    player6Right.src = "fish_12.png";
+    player6Right.src = "textures/fish_12.png";
     
 
 
@@ -316,16 +316,16 @@ const playerLeft = new Image();
 
 
     const background1 = new Image();
-    background1.src = 'background1.png'
+    background1.src = 'textures/background1.png'
 
     const background2 = new Image();
-    background2.src = 'background2.png'
+    background2.src = 'textures/background2.png'
 
     const background3 = new Image();
-    background3.src = 'background3.png'
+    background3.src = 'textures/background3.png'
 
     const background4 = new Image();
-    background4.src = 'background4.png'
+    background4.src = 'textures/background4.png'
     
     function handleBackground() {
         if (gameFrame % 50 == 0) {backgroundCounter++};
@@ -356,7 +356,7 @@ const playerLeft = new Image();
 
 
     const hook1 = new Image();
-    hook1.src = "hook.png";
+    hook1.src = "textures/hook.png";
 
     class Hook {
         constructor() {
