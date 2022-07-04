@@ -130,9 +130,10 @@ body {
     position: absolute;
     z-index: 99;
     background: transparent;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
 }
 
 #modal2_up {

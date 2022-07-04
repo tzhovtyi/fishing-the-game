@@ -74,9 +74,6 @@
     const player6Right = new Image();
     player6Right.src = "textures/fish_12.png";
     
-
-
-  
     const levelConfig = {
                 1: {imageLeft: playerLeft,
                     imageRight: playerRight,
@@ -144,8 +141,7 @@
     const fish2Height = 103;
     const fish3Width = 200; 
     const fish3Height = 121;
- 
- 
+
     //переменные локализации
     let scoreWord;
     let youWord;
@@ -156,7 +152,6 @@
     let fish5;
     let fish6;
     let fishWord;
-
 
     function english(){
         scoreWord = "Score: ";
@@ -180,7 +175,7 @@
         document.getElementById('buttonHard').innerHTML = 'Hard';
         document.getElementById('restart_question').innerHTML = 'You have lost. <br> Wanna play again?';
         document.getElementById('restart_button').innerHTML = 'Restart';
-        document.getElementById('modal2').style.display = 'flex';
+        document.getElementById('modal2').style.opacity = '1';
     };
 
     function russian(){
@@ -205,7 +200,7 @@
         document.getElementById('buttonHard').innerHTML = 'Сложно';
         document.getElementById('restart_question').innerHTML = 'Жаль, но вы проиграли. <br> Хотите попробовать еще?';
         document.getElementById('restart_button').innerHTML = 'Да хочу';
-        document.getElementById('modal2').style.display = 'flex';
+        document.getElementById('modal2').style.opacity = '1';
     };
 
     function showRules() {

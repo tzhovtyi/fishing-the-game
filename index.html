@@ -13,10 +13,12 @@
 <body>
     <div id="dark"></div>
 
-    <div id="restart_">
-        <div id="restart_question"> </div>
-        <div id="restart_button_space"> 
-            <div class="buttonRulesDiv"><button id="restart_button" class="button1" onclick="restart()"></button>  </div>
+   <div id = "modal1"> 
+         <!--<img class = "modal_Img", src="modal.png", alt = 'error'> -->
+        <div id="modal1_up"> <p>Choose the languauge <br> Выберите язык</p></div>
+        <div id="modal1_down">
+            <div id="buttonEngDiv" class="buttonDiv"><button id = 'buttonEng' class="button" onclick="english()">English</button> </div>
+            <div id="buttonRusDiv" class="buttonDiv"><button id = 'buttonRus' class="button" onclick="russian()">Русский</button> </div>
         </div>
     </div>
 
@@ -24,16 +26,6 @@
         <div id="modal_rules1"></div>
         <div id="modal_rules2">
             <div class = "buttonRulesDiv"><button id="close_rules" class = 'button1' onclick="closeRules()"></button> </div>
-            
-        </div>
-    </div>
-    
-   <div id = "modal1"> 
-         <!--<img class = "modal_Img", src="modal.png", alt = 'error'> -->
-        <div id="modal1_up"> <p>Choose the languauge <br> Выберите язык</p></div>
-        <div id="modal1_down">
-            <div id="buttonEngDiv" class="buttonDiv"><button id = 'buttonEng' class="button" onclick="english()">English</button> </div>
-            <div id="buttonRusDiv" class="buttonDiv"><button id = 'buttonRus' class="button" onclick="russian()">Русский</button> </div>
         </div>
     </div>
 
@@ -46,14 +38,19 @@
             <div id="buttonEasyDiv" class="buttonDiv2">  <button id = 'buttonEasy' class="button" onclick="setDifficulty('easy')">легко</button></div>
             <div id="buttonMediumDiv" class="buttonDiv2"> <button id = 'buttonMedium' class="button" onclick="setDifficulty('medium')">норм</button>  </div>
             <div id="buttonHardDiv" class="buttonDiv2"> <button id = 'buttonHard' class="button" onclick="setDifficulty('hard')">сложно</button> </div>
-           
-           
-           
         </div>
     </div>
 
     <div id="canvasCurtain"> </div>
     <canvas id = "canvas1"></canvas>
+
+    <div id="restart_">
+        <div id="restart_question"> </div>
+        <div id="restart_button_space"> 
+            <div class="buttonRulesDiv"><button id="restart_button" class="button1" onclick="restart()"></button>  </div>
+        </div>
+    </div>
+    
 
 
 
