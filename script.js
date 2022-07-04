@@ -20,6 +20,29 @@
     let background;
     let backgroundCounter = 0;
 
+
+    //pre-loading textures
+    const cache = document.createElement("CACHE");
+    cache.style = "position:absolute;z-index:-1000;opacity:0;";
+    document.body.appendChild(cache);
+    function preloadImage(img) {
+        cache.appendChild(img);
+    }
+
+    //backgrounnd textures
+    const background1 = new Image();
+    background1.src = 'textures/background1.png';
+    const background2 = new Image();
+    background2.src = 'textures/background2.png';
+    const background3 = new Image();
+    background3.src = 'textures/background3.png';
+    const background4 = background2;
+
+    preloadImage(background1);
+    preloadImage(background2);
+    preloadImage(background3);
+
+
     //player textures
     const playerLeft = new Image();
     playerLeft.src = "textures/fish_1.png";
@@ -53,6 +76,7 @@
     
 
 
+  
     const levelConfig = {
                 1: {imageLeft: playerLeft,
                     imageRight: playerRight,
@@ -246,13 +270,6 @@
         mouse.y = event.offsetY * pixelRatio;}
     });
 
-    const background1 = new Image();
-    background1.src = 'textures/background1.png';
-    const background2 = new Image();
-    background2.src = 'textures/background2.png';
-    const background3 = new Image();
-    background3.src = 'textures/background3.png';
-    const background4 = background2;
     
 function handleBackground() {
     if (gameFrame % 50 == 0) {backgroundCounter++};
