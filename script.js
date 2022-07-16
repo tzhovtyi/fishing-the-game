@@ -18,7 +18,7 @@
     }
 
     function loadCallback() {
-        loadingProgress += 25;
+        loadingProgress += 20;
         loadBar.style.width = `${loadingProgress}%`;
         if (loadingProgress >= 100) {loadScreen.style.display = 'none';}
     }
@@ -32,12 +32,14 @@
     const background4 = background2;
     const canvasCurtain = new Image();
     canvasCurtain.src = 'textures/canvas_background.png'
-
+    const rulesRestartModal = new Image();
+    rulesRestartModal.src = 'textures/button6.png';
 
     preloadImage(background1);
     preloadImage(background2);
     preloadImage(background3);
     preloadImage(canvasCurtain);
+    preloadImage(rulesRestartModal); 
 
     //canvas setup
     const canvas = document.getElementById("canvas1");
