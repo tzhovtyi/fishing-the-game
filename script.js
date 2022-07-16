@@ -22,11 +22,15 @@
 
 
     //pre-loading textures
-    const cache = document.createElement("CACHE");
+    const cache = document.createElement("cache");
     cache.style = "position:absolute;z-index:-1000;opacity:0;";
     document.body.appendChild(cache);
+    
     function preloadImage(img) {
         cache.appendChild(img);
+        img.onload = () => { 
+            console.log('loaded' + img.src);
+        }
     }
 
     //backgrounnd textures
