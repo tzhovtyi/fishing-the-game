@@ -1,78 +1,77 @@
-    //loading script 
-    const loadScreen = document.getElementById('loading-screen');
-    const loadBar = document.getElementById('loadbar');
-    let loadingProgress = 0;
 
-    //creating cache
-    const cache = document.createElement("cache");
-    cache.style = "position:absolute;z-index:-1000;opacity:0;";
-    document.body.appendChild(cache);
+//loading script 
+const loadScreen = document.getElementById('loading-screen');
+const loadBar = document.getElementById('loadbar');
+let loadingProgress = 0;
 
-    function preloadImage(img) {
-        cache.appendChild(img);
-        img.onload = () => { 
-            console.log('loaded' + img.src);
-            cache.removeChild(img);
-            loadCallback();
-        }
+//creating cache
+const cache = document.createElement("cache");
+cache.style = "position:absolute;z-index:-1000;opacity:0;";
+document.body.appendChild(cache);
+
+function preloadImage(img) {
+    cache.appendChild(img);
+    img.onload = () => { 
+        console.log('loaded' + img.src);
+        cache.removeChild(img);
+        loadCallback();
     }
+}
 
-    function loadCallback() {
-        loadingProgress += 20;
-        loadBar.style.width = `${loadingProgress}%`;
-        if (loadingProgress >= 100) {
-            loadScreen.style.display = 'none';
-        }
+function loadCallback() {
+    loadingProgress += 17;
+    loadBar.style.width = `${loadingProgress}%`;
+    if (loadingProgress >= 100) {
+        loadScreen.style.display = 'none';
     }
-    
-    const background1 = new Image();
-    background1.src = 'textures/background1.png';
-    const background2 = new Image();
-    background2.src = 'textures/background2.png';
-    const background3 = new Image();
-    background3.src = 'textures/background3.png';
-    const background4 = background2;
-    const canvasCurtain = new Image();
-    canvasCurtain.src = 'textures/canvas_background.png'
-    const rulesRestartModal = new Image();
-    rulesRestartModal.src = 'textures/button6.png';
+}
 
-    preloadImage(background1);
-    preloadImage(background2);
-    preloadImage(background3);
-    preloadImage(canvasCurtain);
-    preloadImage(rulesRestartModal); 
+const background1 = new Image();
+background1.src = 'textures/background1.png';
+const background2 = new Image();
+background2.src = 'textures/background2.png';
+const background3 = new Image();
+background3.src = 'textures/background3.png';
+const background4 = background2;
+const canvasCurtain = new Image();
+canvasCurtain.src = 'textures/canvas_background.png'
+const rulesRestartModal = new Image();
+rulesRestartModal.src = 'textures/button6.png';
 
+preloadImage(background1);
+preloadImage(background2);
+preloadImage(background3);
+preloadImage(canvasCurtain);
+preloadImage(rulesRestartModal); 
 
-    // if (!window.requestAnimationFrame) {
-    //     window.requestAnimationFrame =
-    //       window.mozRequestAnimationFrame ||
-    //       window.webkitRequestAnimationFrame;
-    //   }
+//determinig Hz monitor type
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame =
+          window.mozRequestAnimationFrame ||
+          window.webkitRequestAnimationFrame;
+      }
     let hzRate = 1;
     const standartHzValue = 60;
-
-
     let fpsData;
+
     let fpsArr = [];
       let t = [];
-      function animate(now) {
+      function checkFps(now) {
         t.unshift(now);
         if (t.length > 10) {
           let t0 = t.pop();
           let fps = Math.floor(1000 * 10 / (now - t0));
           fpsArr.push(fps);
         }
-        if (fpsArr.length < 100) {window.requestAnimationFrame(animate);
+        if (fpsArr.length < 100) {window.requestAnimationFrame(checkFps);
         } else {
             fpsData = Math.floor((fpsArr.splice(49, 50).reduce((a, b) => a + b, 0)/50));
             console.log(fpsData);
             hzRate = fpsData/standartHzValue;
+            loadCallback();
         }};
 
-      animate();
-
-       
+      checkFps();
 
 
 
@@ -315,7 +314,7 @@
 
     
 function handleBackground() {
-    if (gameFrame % 50 == 0) {backgroundCounter++};
+    if (gameFrame % 50*hzRate == 0) {backgroundCounter++};
     if (backgroundCounter > 3) {backgroundCounter = 0};
     switch (backgroundCounter) {
         case 0: 
@@ -461,7 +460,7 @@ function drawLeska() {
         constructor() {
             this.x = Math.floor(Math.random() * canvas.width);
             this.y = 260;
-            this.speed = Math.floor(Math.random() * 8 + 1);
+            this.speed = Math.floor((Math.random() * 8 + 1)*hzRate);
             this.radius = 10;
             this.distance;
             this.counted = false;
@@ -552,8 +551,8 @@ function drawLeska() {
         handleBackground();
         hookRandCoordinates.x = 750;
         hookRandCoordinates.y = 270;
-        hookSpeed = 80;
-        fishSpeed = 80;
+        hookSpeed = 80*hzRate;
+        fishSpeed = 80*hzRate;
         hook.update();
         hook.draw();
         player.update();
