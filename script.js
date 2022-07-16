@@ -1,3 +1,44 @@
+    //loading script 
+    const loadScreen = document.getElementById('loading-screen');
+    const loadBar = document.getElementById('loadbar');
+    let loadingProgress = 0;
+
+    //creating cache
+    const cache = document.createElement("cache");
+    cache.style = "position:absolute;z-index:-1000;opacity:0;";
+    document.body.appendChild(cache);
+
+    function preloadImage(img) {
+        cache.appendChild(img);
+        img.onload = () => { 
+            console.log('loaded' + img.src);
+            cache.removeChild(img);
+            loadCallback();
+        }
+    }
+
+    function loadCallback() {
+        loadingProgress += 25;
+        loadBar.style.width = `${loadingProgress}%`;
+        if (loadingProgress >= 100) {loadScreen.style.display = 'none';}
+    }
+    
+    const background1 = new Image();
+    background1.src = 'textures/background1.png';
+    const background2 = new Image();
+    background2.src = 'textures/background2.png';
+    const background3 = new Image();
+    background3.src = 'textures/background3.png';
+    const background4 = background2;
+    const canvasCurtain = new Image();
+    canvasCurtain.src = 'textures/canvas_background.png'
+
+
+    preloadImage(background1);
+    preloadImage(background2);
+    preloadImage(background3);
+    preloadImage(canvasCurtain);
+
     //canvas setup
     const canvas = document.getElementById("canvas1");
     const ctx = canvas.getContext('2d', { alpha: false });
@@ -19,33 +60,6 @@
     let iscaught = false;
     let background;
     let backgroundCounter = 0;
-
-
-    //pre-loading textures
-    const cache = document.createElement("cache");
-    cache.style = "position:absolute;z-index:-1000;opacity:0;";
-    document.body.appendChild(cache);
-
-    function preloadImage(img) {
-        cache.appendChild(img);
-        img.onload = () => { 
-            console.log('loaded' + img.src);
-            cache.removeChild(img);
-        }
-    }
-
-    //backgrounnd textures
-    const background1 = new Image();
-    background1.src = 'textures/background1.png';
-    const background2 = new Image();
-    background2.src = 'textures/background2.png';
-    const background3 = new Image();
-    background3.src = 'textures/background3.png';
-    const background4 = background2;
-
-    preloadImage(background1);
-    preloadImage(background2);
-    preloadImage(background3);
 
 
     //player textures
@@ -135,17 +149,8 @@
     let fishSpeed;
     let cornSpawnFrequency;
 
- 
-
     const hookWidth = 30;
     const hookHeight = 58;
-
-    const fishWidth = 150; 
-    const fishHeight = 60; 
-    const fish2Width = 200; 
-    const fish2Height = 103;
-    const fish3Width = 200; 
-    const fish3Height = 121;
 
     //переменные локализации
     let scoreWord;
@@ -374,8 +379,6 @@ function drawLeska() {
             this.y =  canvas.height/2;
             this.radius = 15;
             this.angle = 0; 
-            this.spriteWidth = fishWidth;
-            this.spriteHeight = fishHeight;
         }
         //двигает координаты рыбы чуть ближе к месту клика если они не совпадают
         update() {

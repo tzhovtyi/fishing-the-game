@@ -10,10 +10,18 @@
 
 </head>
 <body>
+    <!-- loading -->
+    <div id="loading-screen">
+        <div id="loadbar-container">
+            <div id="loadbar"></div>
+        </div>
+    </div>
+
+<!-- затемнение -->
     <div id="dark"></div>
 
+    <!-- first modal -->
    <div id = "modal1"> 
-         <!--<img class = "modal_Img", src="modal.png", alt = 'error'> -->
         <div id="modal1_up"> <p>Choose the languauge <br> Выберите язык</p></div>
         <div id="modal1_down">
             <div id="buttonEngDiv" class="buttonDiv"><button id = 'buttonEng' class="button" onclick="english()">English</button> </div>
@@ -21,13 +29,8 @@
         </div>
     </div>
 
-    <div id="modal_rules">
-        <div id="modal_rules1"></div>
-        <div id="modal_rules2">
-            <div class = "buttonRulesDiv"><button id="close_rules" class = 'button1' onclick="closeRules()"></button> </div>
-        </div>
-    </div>
 
+    <!-- second modal -->
     <div id = "modal2"> 
         <div id="modal2_up">
             <div class="buttonRulesDiv"><button id="buttonRules" class="button1" onclick="showRules()"></button></div>
@@ -39,10 +42,19 @@
             <div id="buttonHardDiv" class="buttonDiv2"> <button id = 'buttonHard' class="button" onclick="setDifficulty('hard')">сложно</button> </div>
         </div>
     </div>
+    <!-- rules modal -->
+    <div id="modal_rules">
+        <div id="modal_rules1"></div>
+        <div id="modal_rules2">
+            <div class = "buttonRulesDiv"><button id="close_rules" class = 'button1' onclick="closeRules()"></button> </div>
+        </div>
+    </div>
 
     <div id="canvasCurtain"> </div>
     <canvas id = "canvas1"></canvas>
 
+
+    <!-- restart query -->
     <div id="restart_">
         <div id="restart_question"> </div>
         <div id="restart_button_space"> 
@@ -50,8 +62,6 @@
         </div>
     </div>
     
-
-
     <script src="script.js"></script>
 </body>
 </html>
