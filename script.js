@@ -20,7 +20,9 @@
     function loadCallback() {
         loadingProgress += 20;
         loadBar.style.width = `${loadingProgress}%`;
-        if (loadingProgress >= 100) {loadScreen.style.display = 'none';}
+        if (loadingProgress >= 100) {
+            loadScreen.style.display = 'none';
+        }
     }
     
     const background1 = new Image();
@@ -40,6 +42,39 @@
     preloadImage(background3);
     preloadImage(canvasCurtain);
     preloadImage(rulesRestartModal); 
+
+
+    // if (!window.requestAnimationFrame) {
+    //     window.requestAnimationFrame =
+    //       window.mozRequestAnimationFrame ||
+    //       window.webkitRequestAnimationFrame;
+    //   }
+    let hzRate = 1;
+    const standartHzValue = 60;
+
+
+    let fpsData;
+    let fpsArr = [];
+      let t = [];
+      function animate(now) {
+        t.unshift(now);
+        if (t.length > 10) {
+          let t0 = t.pop();
+          let fps = Math.floor(1000 * 10 / (now - t0));
+          fpsArr.push(fps);
+        }
+        if (fpsArr.length < 100) {window.requestAnimationFrame(animate);
+        } else {
+            fpsData = Math.floor((fpsArr.splice(49, 50).reduce((a, b) => a + b, 0)/50));
+            console.log(fpsData);
+            hzRate = fpsData/standartHzValue;
+        }};
+
+      animate();
+
+       
+
+
 
     //canvas setup
     const canvas = document.getElementById("canvas1");
@@ -226,39 +261,40 @@
     }
 
 
-    const difficultyConfig = {
-        'easy': {
-            'hookSpeed' : 35,
-            'hookDelay' : 800,
-            'hookChangeSpeed' : 100,
-            'fishSpeed' : 10,
-            'cornSpeed' : 4,
-            'cornSpawnFrequency' : 20,
-        },
-        'medium': {
-            'hookSpeed' : 25,
-            'hookDelay' : 400,
-            'hookChangeSpeed' : 80,
-            'fishSpeed' : 11,
-            'cornSpeed' : 8,
-            'cornSpawnFrequency' : 100,
-        },
-        'hard': {
-            'hookSpeed' : 25,
-            'hookDelay' : 1,
-            'hookChangeSpeed' : 30,
-            'fishSpeed' : 12,
-            'cornSpeed' : 15,
-            'cornSpawnFrequency' : 150,
-        }
-    }
+    let difficultyConfig = {
+            'easy': {
+                'hookSpeed' : 35,
+                'hookDelay' : 800,
+                'hookChangeSpeed' : 100,
+                'fishSpeed' : 10,
+                'cornSpeed' : 4,
+                'cornSpawnFrequency' : 20,
+                },
+            'medium': {
+                'hookSpeed' : 25,
+                'hookDelay' : 400,
+                'hookChangeSpeed' : 80,
+                'fishSpeed' : 11,
+                'cornSpeed' : 8,
+                'cornSpawnFrequency' : 100,
+                },
+            'hard': {
+                'hookSpeed' : 25,
+                'hookDelay' : 1,
+                'hookChangeSpeed' : 30,
+                'fishSpeed' : 12,
+                'cornSpeed' : 15,
+                'cornSpawnFrequency' : 150,
+                },
+            }
+        
     function setDifficulty(difficulty) {
-        hookSpeed = difficultyConfig[difficulty]['hookSpeed'];
-        hookDelay = difficultyConfig[difficulty]['hookDelay'];
-        hookChangeSpeed = difficultyConfig[difficulty]['hookChangeSpeed'];
-        fishSpeed = difficultyConfig[difficulty]['fishSpeed'];
-        cornSpeed = difficultyConfig[difficulty]['cornSpeed'];
-        cornSpawnFrequency = difficultyConfig[difficulty]['cornSpawnFrequency'];
+        hookSpeed = difficultyConfig[difficulty]['hookSpeed']*hzRate;
+        hookDelay = difficultyConfig[difficulty]['hookDelay']*hzRate;
+        hookChangeSpeed = difficultyConfig[difficulty]['hookChangeSpeed']*hzRate;
+        fishSpeed = difficultyConfig[difficulty]['fishSpeed']*hzRate;
+        cornSpeed = difficultyConfig[difficulty]['cornSpeed']*hzRate;
+        cornSpawnFrequency = difficultyConfig[difficulty]['cornSpawnFrequency']*hzRate;
         document.getElementById('modal2').style.display = 'none';
         document.getElementById('canvasCurtain').style.display = 'none';
         main();
@@ -568,7 +604,6 @@ function drawLeska() {
         textHandler();
         gameFrame++;
         if (iscaught == false) {
-        console.log(gameFrame);
         requestAnimationFrame(main);
         } 
     }
