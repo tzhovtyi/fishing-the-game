@@ -293,7 +293,7 @@ preloadImage(rulesRestartModal);
         hookChangeSpeed = difficultyConfig[difficulty]['hookChangeSpeed']*hzRate;
         fishSpeed = difficultyConfig[difficulty]['fishSpeed']*hzRate;
         cornSpeed = difficultyConfig[difficulty]['cornSpeed']*hzRate;
-        cornSpawnFrequency = difficultyConfig[difficulty]['cornSpawnFrequency']*hzRate;
+        cornSpawnFrequency = difficultyConfig[difficulty]['cornSpawnFrequency']*(Math.floor(hzRate) || 1);
         document.getElementById('modal2').style.display = 'none';
         document.getElementById('canvasCurtain').style.display = 'none';
         main();
@@ -460,7 +460,7 @@ function drawLeska() {
         constructor() {
             this.x = Math.floor(Math.random() * canvas.width);
             this.y = 260;
-            this.speed = Math.floor((Math.random() * 8 + 1)*hzRate);
+            this.speed = (Math.random() * 8 + 1);
             this.radius = 10;
             this.distance;
             this.counted = false;
