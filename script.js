@@ -67,7 +67,8 @@ preloadImage(rulesRestartModal);
         } else {
             fpsData = Math.floor((fpsArr.splice(49, 50).reduce((a, b) => a + b, 0)/50));
             console.log(fpsData);
-            hzRate = fpsData/standartHzValue;
+            hzRate = (Math.floor(fpsData/standartHzValue) || 1);
+            console.log(hzRate);
             loadCallback();
         }};
 
@@ -263,7 +264,7 @@ preloadImage(rulesRestartModal);
     let difficultyConfig = {
             'easy': {
                 'hookSpeed' : 35,
-                'hookDelay' : 800,
+                'hookDelay' : 400,
                 'hookChangeSpeed' : 100,
                 'fishSpeed' : 10,
                 'cornSpeed' : 4,
@@ -271,7 +272,7 @@ preloadImage(rulesRestartModal);
                 },
             'medium': {
                 'hookSpeed' : 25,
-                'hookDelay' : 400,
+                'hookDelay' : 300,
                 'hookChangeSpeed' : 80,
                 'fishSpeed' : 11,
                 'cornSpeed' : 8,
@@ -279,7 +280,7 @@ preloadImage(rulesRestartModal);
                 },
             'hard': {
                 'hookSpeed' : 25,
-                'hookDelay' : 1,
+                'hookDelay' : 100,
                 'hookChangeSpeed' : 30,
                 'fishSpeed' : 12,
                 'cornSpeed' : 15,
@@ -293,7 +294,7 @@ preloadImage(rulesRestartModal);
         hookChangeSpeed = difficultyConfig[difficulty]['hookChangeSpeed']*hzRate;
         fishSpeed = difficultyConfig[difficulty]['fishSpeed']*hzRate;
         cornSpeed = difficultyConfig[difficulty]['cornSpeed']*hzRate;
-        cornSpawnFrequency = difficultyConfig[difficulty]['cornSpawnFrequency']*(Math.floor(hzRate) || 1);
+        cornSpawnFrequency = difficultyConfig[difficulty]['cornSpawnFrequency']*hzRate;
         document.getElementById('modal2').style.display = 'none';
         document.getElementById('canvasCurtain').style.display = 'none';
         main();
@@ -602,6 +603,7 @@ function drawLeska() {
         spawnCorn();
         textHandler();
         gameFrame++;
+        console.log(gameFrame);
         if (iscaught == false) {
         requestAnimationFrame(main);
         } 
