@@ -55,7 +55,7 @@ const firebaseConfig = {
 
   function printScores(difArr, parentDiv){ 
       parentDiv.innerHTML = '';
-      let arr = difArr.sortByScore().splice(0, 15);
+      let arr = difArr.sortByScore().splice(0, 10);
       console.log(arr);
       for (i=0; i<arr.length; i++) {
           let line = document.createElement('div');

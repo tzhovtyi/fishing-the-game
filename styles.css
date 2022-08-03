@@ -193,7 +193,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.9rem;
+    font-size: 1.2em;
     flex-direction: column;
     margin: 1px;
 }
@@ -324,7 +324,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 0.8em;
     width: 100%
 }
 
@@ -349,7 +349,7 @@ body {
     flex-direction: row;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
-    font-size: 1rem;
+    font-size: 0.7em;
 }
 /* END SCOREBOARD */
 
