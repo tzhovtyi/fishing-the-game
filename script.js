@@ -1,3 +1,18 @@
+    let deviceType = 'desktop';
+
+    function checkDeviceType() {
+        const ua = navigator.userAgent;
+        if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+            deviceType = "tablet";
+        }
+        else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+            deviceType = "mobile";
+        }
+    };
+    checkDeviceType();
+
+    
+    
     //canvas setup
     const canvas = document.getElementById("canvas1");
     const ctx = canvas.getContext('2d', { alpha: false });
@@ -12,18 +27,16 @@
     let adaptWidth = canvas.width/pixelRatio;
     let adaptHeight = canvas.height/pixelRatio;
 
-    // pixelRatio <= 1 && (window.innerHeight < canvas.height || window.innerWidth < canvas.width
 
-    // if (window.innerWidth < adaptWidth || window.innerHeight < adaptHeight) {
-        console.log('not very good screen detected');
+    if (window.innerWidth < adaptWidth || window.innerHeight < adaptHeight || deviceType === 'mobile') {
         canvas.style.width = `${window.innerWidth * 0.95}px`;
         canvas.style.height = `${canvas.style.width/widthToHeightRatio}px`;
         lowResAdaptRatio = canvas.width/(window.innerWidth * 0.95);
         pixelRatio = 1;
-    // } else {
-    //     canvas.style.width = `${adaptWidth}px`;
-    //     canvas.style.height = `${adaptHeight}px`;
-    // }
+    } else {
+        canvas.style.width = `${adaptWidth}px`;
+        canvas.style.height = `${adaptHeight}px`;
+    }
 
     ctx.font = '35px Life';
 
