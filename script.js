@@ -4,11 +4,17 @@
 
     canvas.width = 1800;
     canvas.height = 825;
+    const widthToHeightRatio = canvas.width/canvas.height;
     
-    const pixelRatio = window.devicePixelRatio;
-    if (pixelRatio < 1) {pixelRatio = 1}; 
-     canvas.style.width = `${canvas.width/pixelRatio}px`;
-     canvas.style.height = `${canvas.height/pixelRatio}px`;
+    let pixelRatio = window.devicePixelRatio;
+    canvas.style.width = `${canvas.width/pixelRatio}px`;
+    canvas.style.height = `${canvas.height/pixelRatio}px`;
+
+    if (pixelRatio <= 1 && (window.innerHeight < canvas.height || window.innerWidth < canvas.width)) {
+        canvas.style.width = `${(window.innerWidth*0.9)/pixelRatio}px`;
+        canvas.style.height = `${canvas.style.width/widthToHeightRatio}px`;
+    }
+
      
     ctx.font = '35px Life';
 
