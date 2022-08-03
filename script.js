@@ -7,15 +7,24 @@
     const widthToHeightRatio = canvas.width/canvas.height;
     
     let pixelRatio = window.devicePixelRatio;
-    canvas.style.width = `${canvas.width/pixelRatio}px`;
-    canvas.style.height = `${canvas.height/pixelRatio}px`;
+    let lowResAdaptRatio = 1;
 
-    if (pixelRatio <= 1 && (window.innerHeight < canvas.height || window.innerWidth < canvas.width)) {
-        canvas.style.width = `${(window.innerWidth*0.9)/pixelRatio}px`;
+    let adaptWidth = canvas.width/pixelRatio;
+    let adaptHeight = canvas.height/pixelRatio;
+
+    // pixelRatio <= 1 && (window.innerHeight < canvas.height || window.innerWidth < canvas.width
+
+    // if (window.innerWidth < adaptWidth || window.innerHeight < adaptHeight) {
+        console.log('not very good screen detected');
+        canvas.style.width = `${window.innerWidth * 0.95}px`;
         canvas.style.height = `${canvas.style.width/widthToHeightRatio}px`;
-    }
+        lowResAdaptRatio = canvas.width/(window.innerWidth * 0.95);
+        pixelRatio = 1;
+    // } else {
+    //     canvas.style.width = `${adaptWidth}px`;
+    //     canvas.style.height = `${adaptHeight}px`;
+    // }
 
-     
     ctx.font = '35px Life';
 
     //mouse 
@@ -26,8 +35,8 @@
     }
     canvas.addEventListener('click', function(event) {
         if (iscaught == false) {
-        mouse.x = event.offsetX * pixelRatio;
-        mouse.y = event.offsetY * pixelRatio;}
+        mouse.x = event.offsetX * pixelRatio * lowResAdaptRatio;
+        mouse.y = event.offsetY * pixelRatio * lowResAdaptRatio;}
     });
 
     //переменные мои переменные
