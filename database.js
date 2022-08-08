@@ -50,8 +50,8 @@ const firebaseConfig = {
           if (a[i]['difficulty'] == 'easy') {easyUnsorted.push(a[i]);}
           if (a[i]['difficulty'] == 'normal') {normalUnsorted.push(a[i]);}
           if (a[i]['difficulty'] == 'hard') {hardUnsorted.push(a[i]);}
-      }
- }
+        }
+    }
 
   function printScores(difArr, parentDiv){ 
       parentDiv.innerHTML = '';
@@ -70,20 +70,32 @@ const firebaseConfig = {
       }
  }
 
-const saveScoreFinalBtn = document.getElementById('savescore-final-btn');
+//writes data to the database
 
-saveScoreFinalBtn.addEventListener('click', (e)=> {
-    e.preventDefault();
-    let newUserKey = db.ref().child('users').push().key;
-    let name = document.querySelector("#name").value;
-    if (!name) name = 'аноним';
-    db.ref('/users/'+newUserKey).set({
-             name: name,
-             difficulty: difficultyChosen,
-             score: score
+    const saveScoreFinalBtn = document.getElementById('savescore-final-btn');
+
+    saveScoreFinalBtn.addEventListener('click', (e)=> {
+        e.preventDefault();
+        let newUserKey = db.ref().child('users').push().key;
+        let name = document.querySelector("#name").value;
+        if (!name) name = 'аноним';
+        db.ref('/users/'+newUserKey).set({
+                 name: name,
+                 difficulty: difficultyChosen,
+                 score: score
+            })
+        deepDark();
+        document.getElementById('savescore-main').style.display = "none";
+    })
+
+function submitReview(textAreaID, modalID){
+    let newUserKey = db.ref().child('reviews').push().key;
+    let review = document.getElementById(textAreaID).value;
+    db.ref('/reviews/'+newUserKey).set({
+             review: review,
         })
-    document.getElementById('savescore-dark').style.display = "none";
-    document.getElementById('savescore-main').style.display = "none";
-})
+    deepDark();
+    document.getElementById(modalID).style.display = 'none';
+}
 
 

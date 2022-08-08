@@ -396,7 +396,6 @@ body {
 #savescore-input-container {
     width: 90%;
     height: 20%;
-    /* border: solid rgb(73, 0, 128) 2px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -405,7 +404,6 @@ body {
 #savescore-send-container {
     width: 100%;
     height: 30%;
-    /* border: solid rgb(128, 0, 70) 2px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -476,6 +474,158 @@ body {
 }
 .fish-choice:hover{
     background: rgba(0, 0, 0, 0.258);
+}
+
+#rate-main{ 
+    position: absolute;
+    background-image: url(textures/button6.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 40vw;
+    height: 30vh;
+    top: 10vh;
+    display: none;
+    z-index: 300;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+#rate-text-1{
+    text-align: center;
+    width: 90%;
+    height: 40%;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rate-buttons-container{
+    text-align: center;
+    width: 95%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#rate-button-good{
+    background-image: url(textures/button4.png);
+}
+#rate-button-bad{
+    background-image: url(textures/button2.png);
+}
+
+.rate-button{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 45%;
+    height: 60%;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+.rate-button:hover{
+    filter: brightness(94%);
+}
+
+#rate-good-main {
+    width: 55vw;
+    height: 75vh;
+    z-index: 300;
+    background-image: url(textures/button6.png);
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    opacity: 100%;
+    margin-bottom: 7vh;
+    
+}
+#rate-good-text{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2%;
+}
+#textarea-container {
+    background-image: url(textures/button.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 90%;
+    height: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#rate-bad-main {
+    width: 55vw;
+    height: 75vh;
+    z-index: 300;
+    background-image: url(textures/button6.png);
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    opacity: 100%;
+    margin-bottom: 7vh;
+    
+}
+#rate-bad-text{
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2%;
+    font-size: 0.7em;
+}
+#textarea-container-bad {
+    background-image: url(textures/button.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 90%;
+    height: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.review { 
+    outline: none;
+    background-color: transparent;
+    border: none;
+    width: 90%;
+    height: 70%;
+    resize: none;
+    overflow: hidden;
+
+}
+.rate-submit-container {
+    width: 70%;
+    height: 12%;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonRateDiv {
+    width: 30%;
+    height: 95%;
+    background-image: url(textures/button5.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fishImg {

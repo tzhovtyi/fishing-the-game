@@ -9,6 +9,8 @@
     let fish5;
     let fish6;
     let fishWord;
+    let language;
+  
 
     const localisationMap = {
         'rules': {
@@ -98,11 +100,37 @@
         'fish6': {
             'ru': 'лгбт рыба',
             'en': 'a pride fish'
+        },
+        'rate-text-1': {
+            'ru': 'Ваша оценка игре:',
+            'en': 'Your opinion about all this?'
+        },
+        'rate-good': {
+            'ru': 'Прикольно',
+            'en': "It's alright"
+        },
+        'rate-bad': {
+            'ru': 'Плохо',
+            'en': 'It sucks'
+        },
+        'rated-good': {
+            'ru': 'Спасибо, я старался. Вы можете оставить какие угодно предложение и комментарии к игре прямо здесь. Обнял.',
+            'en': 'Thanks, mate! You can leave any comments and ideas for improvements right here'
+        },
+        'submit': {
+            'ru': 'Отправить',
+            'en': 'Submit'
+        },
+        'rated-bad': {
+            'ru': 'Жаль слышать. Если у Вас возникли какие-либо проблемы или баги с игрой, прошу, напишите о них здесь. ',
+            'en': "Sorry you feel that way. If you've encountered any probems or bugs, please, write them here.<br>"
         }
+
     }
 
     let dictionary = {};
     function setLanguage(lang) {
+        language = lang;
         const keys = Object.keys(localisationMap);
         keys.forEach(key => {
             dictionary[key] = localisationMap[key][lang];

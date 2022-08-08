@@ -1,5 +1,4 @@
     let deviceType = 'desktop';
-
     function checkDeviceType() {
         const ua = navigator.userAgent;
         if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
@@ -10,6 +9,8 @@
         }
     };
     checkDeviceType();
+
+
 
     //canvas setup
     const canvas = document.getElementById("canvas1");
@@ -60,54 +61,12 @@
     let background;
     let backgroundCounter = 0;
     let difficultyChosen;
+    let isDark = false;
+    let isDeepDark = false;
+    let ipPrinted = false;
     
     const hookWidth = 30;
     const hookHeight = 58;
-
-
-    function pause() {
-        isOnPause = true;
-        document.getElementById('dark').style.display = 'block';
-    }
-    
-    function unpause() {
-        isOnPause = false;
-        document.getElementById('dark').style.display = 'none';
-        main();
-    }
-    
-    function win() {
-        pause();
-        won = true;
-        document.getElementById('win-main').style.display = 'flex';
-    }
-    
-    fishOptions = document.querySelectorAll('.fish-choice');
-
-    fishOptions.forEach(item => {
-        item.addEventListener('click', (event)=> {
-            document.getElementById('win-main').style.display = 'none';
-            unpause();
-            level = event.currentTarget.attributes.fishN.value;
-            fishWord = dictionary['fish'+String(level)];
-        })
-    })
-
-    function showRules() {
-        document.getElementById('modal_rules').style.display = "flex";
-        document.getElementById('dark').style.display = "block";
-    }
-
-    function closeRules() {
-        document.getElementById('modal_rules').style.display = "none";
-        document.getElementById('dark').style.display = "none";
-    }
-
-    function requestSaveScore(){
-        document.getElementById('savescore-dark').style.display = "flex";
-        document.getElementById('savescore-main').style.display = "flex";
-    }
-
 
 // вызывется из функции spawncorn
     function levelControl() {
@@ -161,7 +120,7 @@
         if ((player.x > 755 || player.x < 745) && (player.y > 275)) {
             requestAnimationFrame(caught);
         } else {
-            document.getElementById('dark').style.display = "block";
+            dark();
             document.getElementById('restart_main').style.display = 'flex';
             setTimeout(()=> {if (gameFrame !== 0){document.getElementById('scoreboard-main').style.opacity = '1';}}, 700);
         }
@@ -170,7 +129,7 @@
     function restart() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         document.getElementById('canvasCurtain').style.display = 'block';
-        document.getElementById('dark').style.display = "none";
+        dark();
         document.getElementById('restart_main').style.display = 'none';
         document.getElementById('scoreboard-main').style.opacity = '0';
         document.getElementById('modal2').style.display = 'flex';
@@ -201,7 +160,6 @@
         spawnCorn();
         textHandler();
         gameFrame++;
-        // console.log(gameFrame);
         if (!iscaught && !isOnPause) {
         requestAnimationFrame(main);
         } 

@@ -64,7 +64,7 @@
             <div id="restart_button_space"> 
                 <div class="buttonRulesDiv"><button id="restart_button" class="button1" loc='restart' onclick="restart()"></button></div>
                 <div class="buttonRulesDiv"><button id="savescore-request-btn" loc='save-score' class="button1" onclick= requestSaveScore() style="font-size: 0.8em;">Save score</button>  </div>
-                <div class="buttonRulesDiv"><button id="rate-button" loc='rate' class="button1" style="font-size: 0.7em;"></button>  </div>
+                <div class="buttonRulesDiv"><button id="rate-button" loc='rate' class="button1" style="font-size: 0.7em;" onclick="requestRate()"></button>  </div>
             </div> 
         </div>
 
@@ -130,12 +130,39 @@
         </div>
     </div>
 
+    <div id="rate-main">
+        <div id="rate-text-1" loc = 'rate-text-1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, consectetur!</div>
+        <div id="rate-buttons-container">
+            <div class = 'rate-button' id="rate-button-good" loc= 'rate-good'></div>
+            <div class = 'rate-button' id="rate-button-bad" loc= 'rate-bad'></div>
+        </div>
+    </div>
 
+    <div id="rate-good-main">
+        <div id="rate-good-text" loc="rated-good">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum laborum reiciendis earum, vero quisquam vitae ut itaque porro harum! Eum recusandae totam dolor error deleniti libero commodi dicta modi.</div>
+        <div id="textarea-container">
+            <textarea maxlength="4000" class = 'review' id="good-review"></textarea>
+        </div>
+        <div class="rate-submit-container">
+            <div class="buttonRateDiv"><button id="submit-rate-btn" loc="submit" onclick="submitReview('good-review', 'rate-good-main')" class="button1" style="font-size: 0.9em;">Save score</button>  </div>
+        </div>
+    </div>
+    <div id="rate-bad-main">
+        <div id="rate-bad-text" loc="rated-bad"></div>
+        <div id="textarea-container-bad">
+            <textarea maxlength="4000" class = 'review' id="bad-review"></textarea>
+        </div>
+        <div class="rate-submit-container">
+            <div class="buttonRateDiv"><button id="submit-rate-btn" loc="submit" onclick="submitReview('bad-review', 'rate-bad-main')" class="button1" style="font-size: 0.9em;">Save score</button>  </div>
+        </div>
+    </div>
 <script type="text/javascript" src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
 <script src="./preload.js"></script>
 <script src="./database.js"></script>
 <script src="./script.js"></script>
+<script src="./functions.js"></script>
+
 <script src="./background.js"></script>
 <script src="./hook.js"></script>
 <script src="./player.js"></script>
