@@ -23,8 +23,8 @@
    <div id = "modal1"> 
         <div id="modal1_up"> <p>Choose the languauge <br> Выберите язык</p></div>
         <div id="modal1_down">
-            <div id="buttonEngDiv" class="buttonDiv"><button id = 'buttonEng' class="button" onclick="english()">English</button> </div>
-            <div id="buttonRusDiv" class="buttonDiv"><button id = 'buttonRus' class="button" onclick="russian()">Русский</button> </div>
+            <div id="buttonEngDiv" class="buttonDiv"><button id = 'buttonEng' class="button" onclick="setLanguage('en')">English</button> </div>
+            <div id="buttonRusDiv" class="buttonDiv"><button id = 'buttonRus' class="button" onclick="setLanguage('ru')">Русский</button> </div>
         </div>
     </div>
 
@@ -32,21 +32,21 @@
     <!-- Difficulty choosing modal -->
     <div id = "modal2"> 
         <div id="modal2_up">
-            <div class="buttonRulesDiv"><button id="buttonRules" class="button1" onclick="showRules()"></button></div>
+            <div class="buttonRulesDiv"><button id="buttonRules" class="button1" loc='rules' onclick="showRules()"></button></div>
         </div>
-        <div id="modal2_middle"></div>
+        <div id="modal2_middle" loc="select-dif"></div>
         <div id="modal2_down">
-            <div id="buttonEasyDiv" class="buttonDiv2">  <button id = 'buttonEasy' class="button" onclick="setDifficulty('easy')">легко</button></div>
-            <div id="buttonMediumDiv" class="buttonDiv2"> <button id = 'buttonMedium' class="button" onclick="setDifficulty('normal')">норм</button>  </div>
-            <div id="buttonHardDiv" class="buttonDiv2"> <button id = 'buttonHard' class="button" onclick="setDifficulty('hard')">сложно</button> </div>
+            <div id="buttonEasyDiv" class="buttonDiv2">  <button id = 'buttonEasy' loc='easy' class="button" onclick="setDifficulty('easy')">легко</button></div>
+            <div id="buttonMediumDiv" class="buttonDiv2"> <button id = 'buttonMedium' loc='normal' class="button" onclick="setDifficulty('normal')">норм</button>  </div>
+            <div id="buttonHardDiv" class="buttonDiv2"> <button id = 'buttonHard' loc='hard' class="button" onclick="setDifficulty('hard')">сложно</button> </div>
         </div>
     </div>
 
     <!-- Rules explanation modal; hidden by default -->
     <div id="modal_rules">
-        <div id="modal_rules1"></div>
+        <div id="modal_rules1" loc ='rules-descripton'></div>
         <div id="modal_rules2">
-            <div class = "buttonRulesDiv"><button id="close_rules" class = 'button1' onclick="closeRules()"></button> </div>
+            <div class = "buttonRulesDiv"><button id="close_rules" loc = 'close' class = 'button1' onclick="closeRules()"></button> </div>
         </div>
     </div>
 
@@ -60,21 +60,21 @@
 
         <!-- modal at the top when one looses; offers to restart/save the score/rate the game -->
         <div id="restart_">
-            <div id="restart_question"> </div>
+            <div id="restart_question" loc="lost-query"> </div>
             <div id="restart_button_space"> 
-                <div class="buttonRulesDiv"><button id="restart_button" class="button1" onclick="restart()"></button></div>
-                <div class="buttonRulesDiv"><button id="savescore-request-btn" class="button1" onclick= requestSaveScore() style="font-size: 0.8em;">Save score</button>  </div>
-                <div class="buttonRulesDiv"><button id="rate-button" class="button1" style="font-size: 0.7em;">Rate the game</button>  </div>
+                <div class="buttonRulesDiv"><button id="restart_button" class="button1" loc='restart' onclick="restart()"></button></div>
+                <div class="buttonRulesDiv"><button id="savescore-request-btn" loc='save-score' class="button1" onclick= requestSaveScore() style="font-size: 0.8em;">Save score</button>  </div>
+                <div class="buttonRulesDiv"><button id="rate-button" loc='rate' class="button1" style="font-size: 0.7em;"></button>  </div>
             </div> 
         </div>
 
             <!-- scoreboard appears with 1 sec delay after the player looses-->
         <div id="scoreboard-main">
-            <div id="scoreboard-title">Scoreboard</div>
+            <div id="scoreboard-title" loc="scoreboard">Scoreboard</div>
             <div id="difficulty-titles">
-                <div id="scoreboard-easy-title">Easy</div>
-                <div id="scoreboard-normal-title">Normal</div>
-                <div id="scoreboard-hard-title">Hard</div>
+                <div id="scoreboard-easy-title" loc="easy">Easy</div>
+                <div id="scoreboard-normal-title" loc="normal">Normal</div>
+                <div id="scoreboard-hard-title" loc="hard">Hard</div>
             </div>
             <div id="scoreboard-container">
                     <!-- firebase data is inserted to these -->
@@ -90,12 +90,43 @@
 
     <!-- asks for the name to compete the score submission -->
     <div id="savescore-main">
-        <div id="savescore-text">Enter your name to save the score</div>
+        <div id="savescore-text" loc="enter-name">Enter your name to save the score</div>
         <div id="savescore-input-container">
             <input id="name" type="text"></input>
         </div>
         <div id="savescore-send-container">
-            <div class="buttonRulesDiv" id="button-savescore-final-div"><button id="savescore-final-btn" class="button1" style="font-size: 0.9em;">Save score</button>  </div>
+            <div class="buttonRulesDiv" id="button-savescore-final-div"><button id="savescore-final-btn" loc="save" class="button1" style="font-size: 0.9em;">Save score</button>  </div>
+        </div>
+    </div>
+
+<!-- 
+    a small fish";
+        fish2 = "a snapper";
+        fish3 = "a flounder";
+        fish4 = 'a flying fish';
+        fish5 = 'a rainbow trout';
+        fish6 = 'a pride fish'; -->
+    <div id="win-main"> 
+        <div id="win-text">You have won! Now you can choose the fish you want <br> and try to beat the hight score</div>
+        <div id="fish-choice-main">
+            <div id= 'fish-choice-1' class = 'fish-choice'  fishN = '1'>
+                <img src="textures/fish_1.png" class = 'fishImg' alt="fish1">
+            </div>
+            <div id= 'fish-choice-2' class = 'fish-choice' fishN = '2'>
+                <img src="textures/fish_3.png" class = 'fishImg' alt="fish1">
+            </div>
+            <div id= 'fish-choice-3' class = 'fish-choice' fishN = '3'>
+                <img src="textures/fish_5.png" class = 'fishImg' alt="fish1">
+            </div>
+            <div id= 'fish-choice-4' class = 'fish-choice' fishN = '4'>
+                <img src="textures/fish_7.png" class = 'fishImg' alt="fish1">
+            </div>
+            <div id= 'fish-choice-5' class = 'fish-choice' fishN = '5'>
+                <img src="textures/fish_9.png" class = 'fishImg' alt="fish1">
+            </div>
+            <div id= 'fish-choice-6' class = 'fish-choice' fishN = '6'>
+                <img src="textures/fish_11.png" class = 'fishImg' alt="fish1">
+            </div>        
         </div>
     </div>
 

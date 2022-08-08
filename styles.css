@@ -430,6 +430,60 @@ body {
 }
 /* END REQUEST NAME AND SAVE SCORE MODAL */
 
+/* WIN SCREEN */
+
+#win-main {
+    position: absolute;
+    z-index: 150;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    height: 70vh;
+    background-image: url(textures/button6.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#win-text {
+    margin-top: 2%;
+    width: 90%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#fish-choice-main {
+    width: 90%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    place-items: center;
+}
+.fish-choice{
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+.fish-choice:hover{
+    background: rgba(0, 0, 0, 0.258);
+}
+
+.fishImg {
+    width: 60%;
+    height: auto;
+}
+
+
 #dark {
     position: absolute;
     left: 0%;

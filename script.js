@@ -11,8 +11,6 @@
     };
     checkDeviceType();
 
-    
-    
     //canvas setup
     const canvas = document.getElementById("canvas1");
     const ctx = canvas.getContext('2d', { alpha: false });
@@ -28,7 +26,7 @@
     let adaptHeight = canvas.height/pixelRatio;
 
 
-    if (window.innerWidth < adaptWidth || window.innerHeight < adaptHeight || deviceType === 'mobile') {
+    if (window.innerWidth < adaptWidth || window.innerHeight < adaptHeight || deviceType === 'mobile' || deviceType === 'tablet') {
         canvas.style.width = `${window.innerWidth * 0.95}px`;
         canvas.style.height = `${canvas.style.width/widthToHeightRatio}px`;
         lowResAdaptRatio = canvas.width/(window.innerWidth * 0.95);
@@ -57,6 +55,8 @@
     let score = 0;
     let level = 1;
     let iscaught = false;
+    let isOnPause = false;
+    let won = false;
     let background;
     let backgroundCounter = 0;
     let difficultyChosen;
@@ -65,6 +65,33 @@
     const hookHeight = 58;
 
 
+    function pause() {
+        isOnPause = true;
+        document.getElementById('dark').style.display = 'block';
+    }
+    
+    function unpause() {
+        isOnPause = false;
+        document.getElementById('dark').style.display = 'none';
+        main();
+    }
+    
+    function win() {
+        pause();
+        won = true;
+        document.getElementById('win-main').style.display = 'flex';
+    }
+    
+    fishOptions = document.querySelectorAll('.fish-choice');
+
+    fishOptions.forEach(item => {
+        item.addEventListener('click', (event)=> {
+            document.getElementById('win-main').style.display = 'none';
+            unpause();
+            level = event.currentTarget.attributes.fishN.value;
+            fishWord = dictionary['fish'+String(level)];
+        })
+    })
 
     function showRules() {
         document.getElementById('modal_rules').style.display = "flex";
@@ -84,30 +111,34 @@
 
 // вызывется из функции spawncorn
     function levelControl() {
-        if (score > 5) {
+
+        if (score > 4) {
             player.radius = 20;
             level = 2;
             fishWord = fish2;
         }
-        if (score > 10) {
+        if (score > 14) {
             player.radius = 25;
             level = 3;
             fishWord = fish3;
         } 
-        if (score > 15) {
+        if (score > 20) {
             player.radius = 25;
             level = 4;
             fishWord = fish4;
         } 
-        if (score > 20) {
+        if (score > 29) {
             player.radius = 25;
             level = 5;
             fishWord = fish5;
         }
-        if (score > 25) {
+        if (score > 39) {
             player.radius = 25;
             level = 6;
             fishWord = fish6;
+        }
+        if (score >= 50) {
+            win();
         }
     }
 
@@ -146,6 +177,7 @@
         hook.x = 750;
         hook.y = 270;
         gameFrame = 0;
+        won = false;
         score = 0;
         level = 1;
         iscaught = false;
@@ -170,7 +202,7 @@
         textHandler();
         gameFrame++;
         // console.log(gameFrame);
-        if (iscaught == false) {
+        if (!iscaught && !isOnPause) {
         requestAnimationFrame(main);
         } 
     }

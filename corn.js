@@ -46,7 +46,7 @@ function spawnCorn(){
         score++;
         cornArray.splice(i, 1);
         i--;
-        levelControl();
+        if (!won) levelControl();
         }
     }     
 }
