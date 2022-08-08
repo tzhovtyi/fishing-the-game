@@ -600,7 +600,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-.review { 
+.review, .review:focus { 
     outline: none;
     background-color: transparent;
     border: none;
