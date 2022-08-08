@@ -18,13 +18,13 @@ cache.style = "position:absolute;z-index:-1000;opacity:0;";
 document.body.appendChild(cache);
 
 
-Object.prototype.preloadImage = function() {
-  cache.appendChild(this);
-  this.onload = () => { 
-      console.log('loaded' + this.src);
-      cache.removeChild(this);
-      loadCallback();
-}}
+// Object.prototype.preloadImage = function() {
+//   cache.appendChild(this);
+//   this.onload = () => { 
+//       console.log('loaded' + this.src);
+//       cache.removeChild(this);
+//       loadCallback();
+// }}
 
 const background1 = new Image();
 background1.src = 'textures/background1.png';
@@ -38,11 +38,24 @@ canvasCurtain.src = 'textures/canvas_background.png'
 const rulesRestartModal = new Image();
 rulesRestartModal.src = 'textures/button6.png';
 
-const largePNGs = [background1, background2, background3, canvasCurtain, rulesRestartModal];
+preloadImage(background1);
+preloadImage(background2);
+preloadImage(background3);
+preloadImage(canvasCurtain);
+preloadImage(rulesRestartModal);
 
-largePNGs.forEach(img => {
-  img.preloadImage();
-});
+
+
+function preloadImage(img) {
+  cache.appendChild(img);
+  img.onload = () => { 
+      console.log('loaded' + img.src);
+      cache.removeChild(img);
+      loadCallback();
+}}
+
+
+
 
 
 //determinig Hz monitor type
