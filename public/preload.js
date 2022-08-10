@@ -27,14 +27,14 @@ document.body.appendChild(cache);
 // }}
 
 const background1 = new Image();
-background1.src = 'textures/background1.png';
+background1.src = 'textures/background1.jpg';
 const background2 = new Image();
-background2.src = 'textures/background2.png';
+background2.src = 'textures/background2.jpg';
 const background3 = new Image();
-background3.src = 'textures/background3.png';
+background3.src = 'textures/background3.jpg';
 const background4 = background2;
 const canvasCurtain = new Image();
-canvasCurtain.src = 'textures/canvas_background.png'
+canvasCurtain.src = 'textures/canvas_background.jpg'
 const rulesRestartModal = new Image();
 rulesRestartModal.src = 'textures/button6.png';
 
