@@ -281,7 +281,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: inherit;
+    font-size: 0.85em;
     margin-top: 5%;
 }
 #restart_button_space {
@@ -588,7 +588,6 @@ body {
     align-items: center;
     text-align: center;
     margin-top: 2%;
-    font-size: 0.7em;
 }
 #textarea-container-bad {
     background-image: url(textures/button.png);

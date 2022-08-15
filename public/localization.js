@@ -11,15 +11,14 @@
     let fishWord;
     let language;
   
-
     const localisationMap = {
         'rules': {
             "ru": "Правила",
             "en": "Rules"
         },
         'rules-descripton': {
-            "ru": "тащемта ничего сложного нет. <br> Кликаешь мышкой - рыба туда плывет. <br> Управление максимально интуитивное.",
-            "en": "So, there is nothing much here. <br> You click - the fish swims. <br> You'll figure out the rest."
+            "ru": " <br> Добро пожаловать в игру про рыбалку. <br> В этот раз Вам предстоит играть за рыбу. <br> Управление максимально интуитивное: <br> тыкаете мышкой и рыба плывет в указанное место. <br> Чтобы победить, нужно собирать очки и эволюционировать, съедая кукурузу. <br> Не забывайте уворачиваться от крючка рыбака. <br> Удачи! ",
+            "en": "Welcome to the fishing game. <br> This time you have to play as a fish. <br> The control is as intuitive as possible: <br> you click (or tap) in any place and the fish swims there. <br> To win, you need to collect points and evolve by eating corn. <br> Don't forget to dodge the fisherman's hook. <br> Good luck!"
         },
         'close': {
             "ru": "Закрыть",
@@ -42,15 +41,15 @@
             "en": "Hard"
         },
         'lost-query': {
-            "ru": "Жаль, но вы проиграли. <br> Хотите попробовать еще?",
-            "en": "You have lost. <br> Wanna play again?"
+            "ru": "Жаль, но Вас поймали. <br> Хотите попробовать еще <br> или сохранить счет на доске почета?",
+            "en": "You have been caught. <br> Wanna play again or save your score on the board?"
         },
         'restart': {
-            "ru": "Да, хочу",
+            "ru": "Играть еще",
             "en": "Restart"
         },
         'save-score': {
-            "ru": "Сохранить очки",
+            "ru": "Сохранить счет",
             "en": "Save score"
         },
         'rate': {
@@ -159,5 +158,8 @@
 
         document.getElementById('modal1').style.display = 'none';
         document.getElementById('modal2').style.opacity = '1';
-        if (lang === 'ru') document.querySelector('#savescore-request-btn').style.fontSize = '0.6em';
+        if (lang === 'ru') {
+            document.querySelector('#savescore-request-btn').style.fontSize = '0.6em';
+            document.querySelector('#restart_button').style.fontSize = '0.8em';
+        }
     }

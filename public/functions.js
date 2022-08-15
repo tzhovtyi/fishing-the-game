@@ -57,32 +57,31 @@ document.querySelector('#rate-button-good').addEventListener('click', ()=>{
 document.querySelector('#rate-button-bad').addEventListener('click', ()=>{
     document.querySelector('#rate-main').style.display = 'none';
     document.querySelector('#rate-bad-main').style.display = 'flex';
-    fetch('http://ip-api.com/json').then(r => r.json())
-    .then(data => ipDataSortPrint(data))
-    .catch(e => console.log("Booo"));
+    // fetch('http://ip-api.com/json').then(r => r.json())
+    // .then(data => ipDataSortPrint(data))
+    // .catch(e => console.log("Booo"));
 })
 
+//  THIS PART WAS INTENDED AS A JOKE, IT'S ONLY WORKING ON HTTP AND NOT HTTPS
 
-
-
-function ipDataSortPrint(data) {
-    let information = {
-        lat: data.lat,
-        lon: data.lon,
-        country: data.country,
-        region: data.regionName,
-        city: data.city,
-        IP: data.query,
-        zip: data.zip  
-    };
-    if (language == 'en' && !ipPrinted) {
-        document.querySelector('#rate-bad-text').innerHTML += `However, your IP is: <br> ${JSON.stringify(information, null, 2)}`;
-        ipPrinted = true; }
-   if (language == 'ru' && !ipPrinted) {
-        document.querySelector('#rate-bad-text').innerHTML += `Однако, вот твой айпи, сука: <br> ${JSON.stringify(information, null, 2)}`;
-        ipPrinted = true;
-    }
-}
+// function ipDataSortPrint(data) {
+//     let information = {
+//         lat: data.lat,
+//         lon: data.lon,
+//         country: data.country,
+//         region: data.regionName,
+//         city: data.city,
+//         IP: data.query,
+//         zip: data.zip  
+//     };
+//     if (language == 'en' && !ipPrinted) {
+//         document.querySelector('#rate-bad-text').innerHTML += `However, your IP is: <br> ${JSON.stringify(information, null, 2)}`;
+//         ipPrinted = true; }
+//    if (language == 'ru' && !ipPrinted) {
+//         document.querySelector('#rate-bad-text').innerHTML += `Однако, вот твой айпи, сука: <br> ${JSON.stringify(information, null, 2)}`;
+//         ipPrinted = true;
+//     }
+// }
 
 fishOptions = document.querySelectorAll('.fish-choice');
 fishOptions.forEach(item => {

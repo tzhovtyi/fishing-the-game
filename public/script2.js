@@ -19,18 +19,21 @@
     canvas.width = 1800;
     canvas.height = 825;
     const widthToHeightRatio = canvas.width/canvas.height;
+    let maxDimension = Math.max(window.innerWidth, window.innerHeight);
     
     let pixelRatio = window.devicePixelRatio;
     let lowResAdaptRatio = 1;
+    let orientationAdjustRatio = maxDimension/window.innerWidth;
 
     let adaptWidth = canvas.width/pixelRatio;
     let adaptHeight = canvas.height/pixelRatio;
 
-
+    
     if (window.innerWidth < adaptWidth || window.innerHeight < adaptHeight || deviceType === 'mobile' || deviceType === 'tablet') {
-        canvas.style.width = `${window.innerWidth * 0.95}px`;
+        // canvas.style.width = `${window.innerWidth * 0.95}px`;
+        canvas.style.width = `${maxDimension}px`;
         canvas.style.height = `${canvas.style.width/widthToHeightRatio}px`;
-        lowResAdaptRatio = canvas.width/(window.innerWidth * 0.95);
+        lowResAdaptRatio = canvas.width/window.innerWidth;
         pixelRatio = 1;
     } else {
         canvas.style.width = `${adaptWidth}px`;
@@ -47,8 +50,8 @@
     }
     canvas.addEventListener('click', function(event) {
         if (iscaught == false) {
-        mouse.x = event.offsetX * pixelRatio * lowResAdaptRatio;
-        mouse.y = event.offsetY * pixelRatio * lowResAdaptRatio;}
+        mouse.x = event.offsetX * pixelRatio * lowResAdaptRatio / orientationAdjustRatio;
+        mouse.y = event.offsetY * pixelRatio * lowResAdaptRatio / orientationAdjustRatio;}
     });
 
     //переменные мои переменные
