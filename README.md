@@ -9,7 +9,7 @@ https://fishing-the-game.firebaseapp.com/
 
 ### Как играть 
 Управление рыбой осуществляется мышкой. Вам необходимо ловить падающую в воду кукурузу, чтобы набирать очки. Главная и единственная опасность игры - рыбак. Попав на его крючок, Вы проигрываете.
-По мере набора очков, Ваша рыба эволюционирует. 50 очков считаются победой в игре, после чего можно продолжить играть с любой рыбой на выбор. Закончив игру, Вы можете записать свой счет на доску почета, он будет виден всем другим игрокам. 
+По мере набора очков, Ваша рыба эволюционирует. 50 очков считаются победой в игре, после чего можно продолжить играть с любой рыбой на выбор. Закончив игру, Вы можете записать свой счет на доску почета, он будет виден всем другим игрокам (если, конечно, Вы набрали достаточно очков, чтобы попасть в топ игроков). Для первой игры рекомендуется выбирать легкую сложность, иначе Вас поймают за считанные секунды.
 
 ### О создании
 Все текстуры в игре были вручную нарисованы акварелью на бумаге.
@@ -31,7 +31,7 @@ https://fishing-the-game.firebaseapp.com/
 
 ## How to play
 The fish is controlled with the mouse. You need to catch corn falling into the water to score points. The main and only danger of the game is the fisherman. Once on his hook, you lose.
-As you gain points, your fish evolves. 50 points are considered a victory in the game, after which you can continue playing with any fish of your choice. After finishing the game, you can save your score on the leaderboard, all the other players will be able to see it.
+As you gain points, your fish evolves. 50 points are considered a victory in the game, after which you can continue playing with any fish of your choice. After finishing the game, you can save your score on the leaderboard, all the other players will be able to see it (if, of course, you scored enough points to get into the top of the players). For the first game, I recommended that you set the difficulty to easy, otherwise you will get caught in a matter of seconds.
 
 ## About creation
 All textures in the game were hand-drawn in watercolor on paper.
