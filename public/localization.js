@@ -85,7 +85,7 @@
             'en': 'a snapper'
         },
         'fish3': {
-            'ru': 'cumбала',
+            'ru': 'камбала',
             'en': 'a flounder'
         },
         'fish4': {
@@ -97,7 +97,7 @@
             'en': 'a rainbow trout'
         },
         'fish6': {
-            'ru': 'лгбт рыба',
+            'ru': 'радужная гуппи',
             'en': 'a pride fish'
         },
         'rate-text-1': {
